@@ -114,12 +114,10 @@ git push -u origin main
 After deployment, copy the live URL and add it in the Live Demo section below.
 
 ## Live Demo
-Add deployed link here after deployment:
-
-Live URL: https://your-live-url-here
+Live URL: https://page-replacement-simulator.onrender.com/
 
 ## Screenshots
-After deployment, take screenshots and place them inside screenshots/ folder, then update paths below.
+Deployment screenshots are listed below. Keep the images inside the screenshots/ folder.
 
 ### Home Page
 ![Home Page](screenshots/home.png)
