@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero panel">
+    <p class="eyebrow">Operating Systems Learning Portal</p>
+    <h1>Efficient Page Replacement Algorithm Simulator</h1>
+    <p class="lead">
+        Explore FIFO, LRU, and Optimal page replacement with a modern interactive interface.
+        Compare page faults, inspect frame transitions, and understand how memory policies affect performance.
+    </p>
+
+    <div class="button-row">
+        <a class="btn btn-primary" href="{{ url_for('simulator') }}">Start Simulation</a>
+        <a class="btn btn-secondary" href="{{ url_for('guide') }}">Read The Guide</a>
+    </div>
+
+    <div class="stats-strip">
+        <article>
+            <h3>3</h3>
+            <p>Algorithms</p>
+        </article>
+        <article>
+            <h3>200</h3>
+            <p>Maximum Reference Length</p>
+        </article>
+        <article>
+            <h3>Stepwise</h3>
+            <p>Frame Visualization</p>
+        </article>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Why This Website Is Useful</h2>
+    <div class="grid three">
+        <article class="feature-card">
+            <h3>Real-Time Insight</h3>
+            <p>See every page request and understand exactly when hits and faults occur.</p>
+        </article>
+        <article class="feature-card">
+            <h3>Clear Comparisons</h3>
+            <p>Evaluate algorithm efficiency side by side using fault and hit ratios.</p>
+        </article>
+        <article class="feature-card">
+            <h3>Course Friendly</h3>
+            <p>Built for CSE316 operating systems learning, demos, and quick lab analysis.</p>
+        </article>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Project Modules</h2>
+    <div class="grid three">
+        <article class="feature-card">
+            <h3>Module 1: Input And Selection</h3>
+            <p>Validate page references and frame count, then choose FIFO, LRU, Optimal, or all.</p>
+        </article>
+        <article class="feature-card">
+            <h3>Module 2: Backend Execution</h3>
+            <p>Run algorithms on Python backend and compute faults, hits, and detailed transitions.</p>
+        </article>
+        <article class="feature-card">
+            <h3>Module 3: Visualization</h3>
+            <p>Render comparison tables, bar charts, and full step-by-step memory trace views.</p>
+        </article>
+    </div>
+</section>
+{% endblock %}

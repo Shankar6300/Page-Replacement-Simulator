@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel page-intro">
+    <p class="eyebrow">Project Background</p>
+    <h1>About This Simulator</h1>
+    <p class="lead">
+        This project was built as an academic Operating Systems lab tool to help learners compare
+        memory management strategies through practical simulation and visual analysis.
+    </p>
+</section>
+
+<section class="panel">
+    <h2>Project Goal</h2>
+    <p>
+        The Efficient Page Replacement Algorithm Simulator demonstrates how different replacement
+        policies behave under the same memory constraints and reference patterns. The website
+        focuses on clarity, speed, and educational impact.
+    </p>
+
+    <div class="grid three">
+        <article class="feature-card">
+            <h3>What It Solves</h3>
+            <p>Provides a controlled environment to study page fault behavior under limited frames.</p>
+        </article>
+        <article class="feature-card">
+            <h3>How It Helps</h3>
+            <p>Visualizes frame transitions so users can understand algorithm decisions step by step.</p>
+        </article>
+        <article class="feature-card">
+            <h3>Who It Is For</h3>
+            <p>Students, instructors, and researchers who need intuitive OS memory management demos.</p>
+        </article>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Team</h2>
+    <p class="muted">
+        You can add or remove team members directly from this page. Changes are saved in your browser.
+    </p>
+
+    <form id="team-form" class="team-form" novalidate>
+        <div class="team-form-grid">
+            <label>
+                Name
+                <input id="team-name" type="text" placeholder="Enter member name" required>
+            </label>
+            <label>
+                Registration Number
+                <input id="team-registration" type="text" placeholder="Enter registration number" required>
+            </label>
+            <label>
+                Roll Number
+                <input id="team-roll" type="text" placeholder="Enter roll number" required>
+            </label>
+        </div>
+        <div class="button-row">
+            <button class="btn btn-primary" type="submit">Add Member</button>
+            <button class="btn btn-secondary" type="button" id="reset-team">Restore Default Team</button>
+        </div>
+    </form>
+
+    <script id="default-team-members" type="application/json">{{ team_members | tojson }}</script>
+
+    <div class="table-wrap">
+        <table class="result-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Registration Number</th>
+                    <th>Roll Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="team-table-body">
+                {% for member in team_members %}
+                <tr>
+                    <td>{{ member.name }}</td>
+                    <td>{{ member.registration }}</td>
+                    <td>{{ member.roll }}</td>
+                    <td><button class="btn btn-danger table-action" type="button" disabled>Remove</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Future Roadmap: AI And Cloud</h2>
+    <div class="grid three">
+        <article class="feature-card">
+            <h3>AI Trace Prediction Engine</h3>
+            <p>
+                Train a sequence model on historical page traces to predict upcoming requests and
+                benchmark policy behavior in advance.
+            </p>
+        </article>
+        <article class="feature-card">
+            <h3>Intelligent Policy Recommendation</h3>
+            <p>
+                Suggest the most efficient algorithm based on workload features such as locality,
+                burst patterns, and frame pressure.
+            </p>
+        </article>
+        <article class="feature-card">
+            <h3>Cloud Classroom Portal</h3>
+            <p>
+                Deploy as a cloud-hosted lab where students run experiments from any device,
+                without local installation.
+            </p>
+        </article>
+        <article class="feature-card">
+            <h3>Live Trace Ingestion</h3>
+            <p>
+                Import memory access traces from real applications and compare algorithm outcomes
+                with practical workloads.
+            </p>
+        </article>
+        <article class="feature-card">
+            <h3>Collaborative Experiment Boards</h3>
+            <p>
+                Let teams save runs, compare graphs, and submit result sheets directly to faculty
+                through a shared dashboard.
+            </p>
+        </article>
+        <article class="feature-card">
+            <h3>Performance At Scale</h3>
+            <p>
+                Add asynchronous batch simulation and parallel execution for large references and
+                high-volume comparative analysis.
+            </p>
+        </article>
+    </div>
+</section>
+{% endblock %}

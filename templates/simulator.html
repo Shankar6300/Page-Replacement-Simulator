@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel page-intro">
+    <p class="eyebrow">Interactive Lab</p>
+    <h1>Page Replacement Simulator</h1>
+    <p class="lead">
+        Enter your page reference sequence, choose the frame count, and compare FIFO, LRU,
+        and Optimal algorithms with real-time step-by-step frame transitions.
+    </p>
+</section>
+
+<section class="panel">
+    <form id="simulation-form" class="simulation-form" novalidate>
+        <div class="form-grid">
+            <label>
+                Number of Frames
+                <input id="frames" name="frames" type="number" min="1" max="15" placeholder="e.g. 3" required>
+            </label>
+
+            <label>
+                Algorithm
+                <select id="algorithm" name="algorithm">
+                    <option value="all" selected>Compare All</option>
+                    <option value="fifo">FIFO</option>
+                    <option value="lru">LRU</option>
+                    <option value="optimal">Optimal</option>
+                </select>
+            </label>
+        </div>
+
+        <label>
+            Page Reference String
+            <input id="pages" name="pages" type="text" placeholder="e.g. 7 0 1 2 0 3 4 2 3 0 3 2" required>
+        </label>
+
+        <div class="button-row">
+            <button class="btn btn-primary" type="submit">Run Simulation</button>
+            <button class="btn btn-secondary" type="button" id="load-sample">Load Sample Input</button>
+        </div>
+    </form>
+
+    <p id="status-message" class="status-message info">Ready. Provide input and start the simulation.</p>
+</section>
+
+<section class="panel">
+    <div class="section-head">
+        <h2>Performance Summary</h2>
+        <p>Faults, hits, and ratio comparison for the selected algorithm set.</p>
+    </div>
+
+    <div class="table-wrap">
+        <table class="result-table" aria-live="polite">
+            <thead>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Page Faults</th>
+                    <th>Page Hits</th>
+                    <th>Fault Ratio</th>
+                    <th>Hit Ratio</th>
+                </tr>
+            </thead>
+            <tbody id="summary-body">
+                <tr class="placeholder-row">
+                    <td colspan="5">No results yet. Run a simulation to populate this table.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="bar-chart" class="bar-chart" aria-live="polite"></div>
+</section>
+
+<section class="panel">
+    <div class="section-head">
+        <h2>Step-by-Step Memory Trace</h2>
+        <p>Inspect each page request to see whether it is a hit or fault and which page gets replaced.</p>
+    </div>
+
+    <div id="algorithm-details" class="algorithm-details">
+        <p class="muted">Simulation details will appear here after execution.</p>
+    </div>
+</section>
+{% endblock %}

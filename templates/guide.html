@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel page-intro">
+    <p class="eyebrow">Learn And Practice</p>
+    <h1>Guide: How The Algorithms Work</h1>
+    <p class="lead">
+        Use this quick guide to understand the simulator workflow and the logic behind FIFO, LRU,
+        and Optimal page replacement strategies.
+    </p>
+</section>
+
+<section class="panel">
+    <h2>How To Use The Simulator</h2>
+    <ol class="steps-list">
+        <li>Open the Simulator page and set the number of frames.</li>
+        <li>Enter the page reference sequence using spaces or commas.</li>
+        <li>Choose one algorithm or select Compare All.</li>
+        <li>Run the simulation to view faults, hits, and memory transitions.</li>
+        <li>Analyze the bar chart and step tables to compare behavior.</li>
+    </ol>
+</section>
+
+<section class="grid three">
+    <article class="feature-card algorithm-card fifo">
+        <h2>FIFO</h2>
+        <p>
+            First-In-First-Out removes the oldest loaded page when memory is full.
+            It is simple and fast but can produce more faults on certain patterns.
+        </p>
+    </article>
+
+    <article class="feature-card algorithm-card lru">
+        <h2>LRU</h2>
+        <p>
+            Least Recently Used replaces the page that has not been used for the longest time.
+            It generally performs better than FIFO in practical workloads.
+        </p>
+    </article>
+
+    <article class="feature-card algorithm-card optimal">
+        <h2>Optimal</h2>
+        <p>
+            Optimal replaces the page whose next use is farthest in the future.
+            It provides the minimum possible faults for a known reference sequence.
+        </p>
+    </article>
+</section>
+
+<section class="panel">
+    <h2>Interpreting The Results</h2>
+    <ul class="plain-list">
+        <li><strong>Page Fault:</strong> Requested page is not in memory and must be loaded.</li>
+        <li><strong>Page Hit:</strong> Requested page is already present in memory.</li>
+        <li><strong>Fault Ratio:</strong> Faults divided by total references.</li>
+        <li><strong>Hit Ratio:</strong> Hits divided by total references.</li>
+        <li><strong>Step Trace:</strong> Shows frames after every request and replacement events.</li>
+    </ul>
+</section>
+{% endblock %}

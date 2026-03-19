@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }} | {{ project_info.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=static_version) }}">
+</head>
+<body class="page-{{ active_page }}">
+    <div class="bg-orb orb-a" aria-hidden="true"></div>
+    <div class="bg-orb orb-b" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <div class="site-shell nav-wrap">
+            <a class="brand" href="{{ url_for('home') }}">
+                <span class="brand-mark">OS</span>
+                <span class="brand-text">{{ project_info.title }}</span>
+            </a>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a class="nav-link {% if active_page == 'home' %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
+                <a class="nav-link {% if active_page == 'simulator' %}active{% endif %}" href="{{ url_for('simulator') }}">Simulator</a>
+                <a class="nav-link {% if active_page == 'guide' %}active{% endif %}" href="{{ url_for('guide') }}">Guide</a>
+                <a class="nav-link {% if active_page == 'about' %}active{% endif %}" href="{{ url_for('about') }}">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-shell main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-shell footer-content">
+            <p>{{ project_info.title }} - {{ project_info.course }} ({{ project_info.section }})</p>
+            <p>Submitted to {{ project_info.mentor }} | {{ current_year }}</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js', v=static_version) }}" defer></script>
+</body>
+</html>
